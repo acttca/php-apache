@@ -1,4 +1,4 @@
-FROM php:5.6-apache
+FROM php:7.2-apache
 
 # install the PHP extensions we need
 RUN set -ex; \
@@ -44,7 +44,6 @@ RUN a2enmod rewrite expires
 VOLUME /var/www/html
 
 COPY docker-entrypoint.sh /usr/local/bin/
-RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
 ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["apache2-foreground"]
